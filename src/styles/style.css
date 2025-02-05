@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+/* Navegação */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem;
+    background-color: var(--background-color);
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--primary-green);
+}
+
+.nav-button {
+    background-color: var(--primary-green);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.nav-button a {
+    color: var(--background-color);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.role {
+    color: var(--primary-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: var(--gray-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--gray-light);
+    color: var(--background-color);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de digitação */
+.typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* About Me Section */
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 4rem;
+    background-color: var(--background-color);
+}
+
+.about-content {
+    flex: 1;
+    padding-left: 4rem;
+}
+
+.about-content h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-text {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.quote {
+    color: var(--gray-light);
+    font-size: 1.5rem;
+    text-align: right;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.image-background {
+    position: relative;
+}
+
+.image-background::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(84, 221, 100, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.about-image img {
+    width: 500px;
+    height: auto;
+}
+
+/* Ajuste para o texto com quebra de linha */
+.typing-text {
+    white-space: pre-line;
+}
+
+/* Media Queries para Mobile */
+@media (max-width: 768px) {
+    /* Navegação Mobile */
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    /* Hero Section Mobile */
+    .hero {
+        flex-direction: row;
+        padding: 2rem;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .hero-content {
+        flex: 1;
+        padding-right: 35%;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    /* About Section Mobile */
+    .about-me {
+        flex-direction: row;
+        padding: 2rem;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .about-content {
+        flex: 1;
+        padding-left: 35%;
+        text-align: right;
+        z-index: 1;
+    }
+
+    .about-image {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45%;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .about-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .welcome-text,
+    .portfolio-text {
+        font-size: 0.9rem;
+        color: var(--primary-green);
+    }
+
+    .quote {
+        font-size: 1rem;
+        margin-top: 2rem;
+        font-style: italic;
+    }
+}
+
+/* Estilos do Menu Hamburguer */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--primary-green);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        z-index: 1001;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Estilo quando menu está ativo */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+    }
+
+    /* Resto dos estilos do menu mobile permanecem iguais */
+    .navbar ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: transparent;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li a {
+        font-size: 1.5rem;
+        color: var(--white);
+        transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+        color: var(--primary-green);
+    }
+
+    .nav-button {
+        background-color: transparent;
+        border: 2px solid var(--primary-green);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+    }
+
+    .nav-button a {
+        color: var(--primary-green) !important;
+    }
+
+    .nav-button:hover {
+        background-color: var(--primary-green);
+    }
+
+    .nav-button:hover a {
+        color: var(--background-color) !important;
+    }
+}
+
+/* Ajuste no main para compensar o menu fixo */
+main {
+    padding-top: 80px;
+}
+
+/* Classe para quando o menu está aberto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Adicione estas classes no início da seção de media queries */
+.blur-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 37, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 998;
+}
+
+.blur-overlay.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li a {
+        font-size: 1.5rem;
+        color: var(--white);
+        position: relative;
+        z-index: 1000;
+    }
+}
