@@ -11,7 +11,7 @@ body {
 
 /* Navegação */
 .navbar {
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -50,33 +50,58 @@ body {
 
 /* Hero Section */
 .hero {
-    padding-top: 120px; /* Espaço para o menu fixo */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    padding: 0;
+    min-height: unset;
 }
 
 .hero-content {
-    flex: 1;
-    padding-left: 4rem;
+    padding: 1rem;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .hero h1 {
     font-size: 4rem;
     color: var(--white);
-    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+.content-divider {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--primary-green),
+        transparent
+    );
+    margin: 1rem auto;
 }
 
 .role {
     color: var(--primary-green);
     font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+    background: rgba(84, 221, 100, 0.1);
+    border-radius: 8px;
+    margin: 0;
 }
 
 .description {
     color: var(--gray-light);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 0;
 }
 
 .cta-button {
@@ -122,43 +147,83 @@ body {
 
 /* About Me Section */
 .about-me {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6rem 4rem;
-    background-color: var(--background-color);
+    padding: 0;
+    min-height: unset;
 }
 
 .about-content {
-    flex: 1;
-    padding-left: 4rem;
+    padding: 1rem;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .about-content h2 {
     font-size: 3.5rem;
     color: var(--white);
-    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 1rem;
+    margin-bottom: 0;
 }
 
-.welcome-text {
-    color: var(--primary-green);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(84, 221, 100, 0.05);
+    border-radius: 12px;
+    margin: 1rem 0;
 }
 
+.welcome-text,
 .portfolio-text {
     color: var(--primary-green);
     font-size: 1.2rem;
-    text-align: right;
-    margin-bottom: 2rem;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(84, 221, 100, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
 .quote {
     color: var(--gray-light);
     font-size: 1.5rem;
-    text-align: right;
     line-height: 1.6;
     font-style: italic;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.quote::before,
+.quote::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 30%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--primary-green),
+        transparent
+    );
+}
+
+.quote::before {
+    top: 0;
+    left: 35%;
+}
+
+.quote::after {
+    bottom: 0;
+    left: 35%;
 }
 
 .about-image {
@@ -197,53 +262,137 @@ body {
 
 /* Media Queries para Mobile */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        padding: 2rem 1rem;
-        min-height: 100vh;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-content {
+    main {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
+        padding: 0 1rem;
+        gap: 2rem;
+        height: auto;
+        margin-top: 60px;
+    }
+
+    .hero,
+    .about-me {
         width: 100%;
-        margin-top: 4rem;
+        overflow: hidden;
         position: relative;
-        z-index: 2;
-        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-content,
+    .about-content {
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-        max-width: 60%;
-        animation: glow 3s infinite;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .about-content h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .hero::before,
+    .hero::after,
+    .about-me::before,
+    .about-me::after {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0.8rem 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    section {
+        margin: 0;
+        padding: 0;
     }
 
     .role {
-        color: var(--primary-green);
         font-size: 1rem;
-        margin-bottom: 1.5rem;
-        padding-left: 2px;
-        max-width: 60%;
-        animation: pulse 2s infinite;
-        transform-origin: left;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 0.8rem;
+        margin: 1rem 0;
     }
 
     .description {
-        color: var(--gray-light);
         font-size: 1rem;
+        padding: 1.2rem;
         line-height: 1.6;
-        opacity: 0.8;
-        margin-bottom: 2rem;
-        max-width: 50%;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        margin: 1rem 0;
+    }
+
+    .text-container {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .welcome-text,
+    .portfolio-text {
+        font-size: 1rem;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+    }
+
+    .quote {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .content-divider {
+        width: 80%;
+        margin: 0.8rem auto;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+
+    .hero-content,
+    .about-content {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero-content {
+        animation-delay: 0.2s;
+    }
+
+    .about-content {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    section {
+        margin: 2rem 0;
+    }
+
+    .welcome-text:active,
+    .portfolio-text:active,
+    .cta-button:active {
+        transform: scale(0.98);
     }
 
     .hero-image {
@@ -262,7 +411,6 @@ body {
         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
     }
 
-    /* Partículas decorativas */
     .particle {
         position: absolute;
         background: linear-gradient(135deg, var(--primary-green), transparent);
@@ -304,7 +452,6 @@ body {
         animation-delay: -7s;
     }
 
-    /* Ajuste no gradiente de fundo */
     .hero::before {
         content: '';
         position: absolute;
@@ -321,94 +468,6 @@ body {
         z-index: 1;
     }
 
-    .welcome-text {
-        color: var(--primary-green);
-        font-size: 1.1rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        width: 100%;
-        position: relative;
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: rgba(84, 221, 100, 0.1);
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .welcome-text:hover {
-        background: rgba(84, 221, 100, 0.2);
-        transform: translateY(-2px);
-    }
-
-    .portfolio-text {
-        color: var(--primary-green);
-        font-size: 1.1rem;
-        text-align: center;
-        margin-bottom: 2rem;
-        width: 100%;
-        position: relative;
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: rgba(84, 221, 100, 0.1);
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .portfolio-text:hover {
-        background: rgba(84, 221, 100, 0.2);
-        transform: translateY(-2px);
-    }
-
-    .quote {
-        color: var(--gray-light);
-        font-size: 1.2rem;
-        text-align: center;
-        line-height: 1.6;
-        font-style: italic;
-        opacity: 0.8;
-        margin: 2rem 0;
-        padding: 0 1rem;
-        position: relative;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 12px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .quote:hover {
-        background: rgba(255, 255, 255, 0.05);
-        transform: translateY(-3px);
-    }
-
-    .cta-button {
-        display: none; /* Removendo o botão que não está no Figma */
-    }
-
-    /* Ajustes gerais */
-    .welcome-text,
-    .portfolio-text {
-        font-size: 1rem;
-        margin: 0;
-        color: var(--primary-green);
-        text-align: center;
-    }
-
-    .about-image {
-        position: relative;
-        width: 150px;
-        margin: 2rem auto;
-        left: auto;
-        bottom: auto;
-    }
-
-    .about-image img {
-        width: 100%;
-        height: auto;
-        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-    }
-
     .quote {
         font-size: 1.2rem;
         line-height: 1.6;
@@ -419,7 +478,6 @@ body {
         font-style: italic;
     }
 
-    /* Elementos decorativos */
     .hero::before {
         content: '';
         position: absolute;
@@ -445,7 +503,6 @@ body {
         opacity: 0.1;
     }
 
-    /* Botão CTA */
     .cta-button {
         margin-top: 1.5rem;
         padding: 0.8rem 2rem;
@@ -462,7 +519,6 @@ body {
         box-shadow: 0 6px 20px rgba(84, 221, 100, 0.4);
     }
 
-    /* Estilos do Menu Hamburguer */
     .menu-toggle {
         display: none;
     }
@@ -507,7 +563,6 @@ body {
             height: 45px;
         }
 
-        /* Estilo quando menu está ativo */
         .menu-toggle.active .hamburger {
             background: transparent;
         }
@@ -522,7 +577,6 @@ body {
             transform: rotate(-45deg);
         }
 
-        /* Resto dos estilos do menu mobile permanecem iguais */
         .navbar ul {
             display: none;
             position: fixed;
@@ -572,17 +626,14 @@ body {
         }
     }
 
-    /* Ajuste no main para compensar o menu fixo */
     main {
         padding-top: 80px;
     }
 
-    /* Classe para quando o menu está aberto */
     body.menu-open {
         overflow: hidden;
     }
 
-    /* Adicione estas classes no início da seção de media queries */
     .blur-overlay {
         display: none;
         position: fixed;
@@ -699,7 +750,6 @@ body {
         height: 150%;
     }
 
-    /* Animações Globais */
     @keyframes pulse {
         0% { transform: scale(1); }
         50% { transform: scale(1.05); }
@@ -727,7 +777,6 @@ body {
         }
     }
 
-    /* Melhorias visuais gerais */
     .role,
     .description {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -738,7 +787,6 @@ body {
         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
     }
 
-    /* Efeito de hover nos links */
     a {
         transition: all 0.3s ease;
     }
@@ -751,6 +799,14 @@ body {
 
 /* Estilos para Desktop */
 @media (min-width: 769px) {
+    main {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 80px 4rem 2rem;
+    }
+
     .hero {
         padding-top: 120px;
         min-height: 100vh;
@@ -796,7 +852,7 @@ body {
     }
 
     .about-image {
-        width: 200px; /* Tamanho fixo menor */
+        width: 200px;
         animation: pulse 3s infinite;
     }
 
