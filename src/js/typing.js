@@ -1,4 +1,5 @@
 function typeWriter() {
+    // Pega o idioma atual do localStorage, com fallback para 'en'
     const currentLang = localStorage.getItem('language') || 'en';
     
     const texts = {
