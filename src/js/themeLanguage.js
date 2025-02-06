@@ -73,35 +73,9 @@ function initThemeAndLanguage() {
         updateLanguageIcon(newLang);
     }
 
-    function loadGoogleTranslate() {
-        // Adiciona classe no-translate aos elementos que não devem ser traduzidos
-        const typingText = document.querySelector('.typing-text');
-        if (typingText) {
-            typingText.classList.add('notranslate');
-        }
-
-        if (!document.getElementById('google_translate_element')) {
-            const div = document.createElement('div');
-            div.id = 'google_translate_element';
-            div.style.display = 'none';
-            document.body.appendChild(div);
-        }
-
-        const script = document.createElement('script');
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        document.body.appendChild(script);
-
-        window.googleTranslateElementInit = function() {
-            translateWidget = new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'pt',
-                autoDisplay: false
-            }, 'google_translate_element');
-        };
-    }
-
     function setLanguage(lang) {
-        document.querySelectorAll('[data-translate]').forEach(element => {
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
             const key = element.getAttribute('data-translate');
             if (translations[lang] && translations[lang][key]) {
                 element.textContent = translations[lang][key];
@@ -112,5 +86,21 @@ function initThemeAndLanguage() {
     function updateLanguageIcon(lang) {
         const icon = document.querySelector('.lang-icon');
         icon.textContent = lang.toUpperCase();
+    }
+
+    function loadGoogleTranslate() {
+        if (!translateWidget) {
+            const script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.body.appendChild(script);
+            
+            window.googleTranslateElementInit = function() {
+                translateWidget = new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'pt,en',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+            };
+        }
     }
 } 
