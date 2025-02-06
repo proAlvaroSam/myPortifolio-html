@@ -1,0 +1,91 @@
+/* Reset para remover estilos anteriores */
+.cta-button,
+.back-home,
+.study-corner,
+a[href="study.html"],
+.navbar ul li:last-child a,
+.submit-button,
+button[type="submit"],
+.contact-button {
+    all: unset; /* Remove todos os estilos anteriores */
+    cursor: pointer;
+}
+
+/* Estilo base para todos os botões verdes */
+.cta-button,
+.back-home,
+.navbar ul li a.study-corner,
+.submit-button,
+button[type="submit"],
+.contact-button {
+    background-color: var(--primary-green);
+    color: var(--dark-bg) !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-green);
+    font-weight: 500;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Estilo específico para o Study Corner no menu */
+.study-corner {
+    background-color: var(--primary-green);
+    color: var(--dark-bg) !important;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-green);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* Efeito hover para botões verdes */
+.cta-button:hover,
+.back-home:hover,
+.navbar ul li a.study-corner:hover,
+.submit-button:hover,
+button[type="submit"]:hover,
+.contact-button:hover {
+    background-color: transparent;
+    color: var(--primary-green) !important;
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(84, 221, 100, 0.2);
+}
+
+/* Efeito active unificado */
+.cta-button:active,
+.back-home:active,
+.study-corner:active,
+a[href="study.html"]:active,
+.navbar ul li:last-child a:active,
+.submit-button:active,
+button[type="submit"]:active,
+.contact-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Garantir consistência em ambos os temas */
+[data-theme='light'] .cta-button,
+[data-theme='light'] .back-home,
+[data-theme='light'] .navbar ul li a.study-corner,
+[data-theme='light'] .submit-button,
+[data-theme='light'] button[type="submit"],
+[data-theme='light'] .contact-button {
+    color: var(--dark-bg) !important;
+}
+
+[data-theme='light'] .cta-button:hover,
+[data-theme='light'] .back-home:hover,
+[data-theme='light'] .navbar ul li a.study-corner:hover,
+[data-theme='light'] .submit-button:hover,
+[data-theme='light'] button[type="submit"]:hover,
+[data-theme='light'] .contact-button:hover {
+    color: var(--primary-green) !important;
+}

@@ -62,22 +62,6 @@
     margin-bottom: 1.5rem;
 }
 
-.contact-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--primary-green);
-    color: var(--background-color);
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.contact-button:hover {
-    background-color: var(--white);
-    transform: translateY(-2px);
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
     .contact-main {

@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--background);
 }
 
 /* Navegação */
@@ -15,7 +15,7 @@ body {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background: rgba(38, 37, 42, 0.95);
+    background: var(--menu-bg);
     backdrop-filter: blur(10px);
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 .navbar a {
-    color: var(--white);
+    color: var(--menu-text);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
@@ -36,16 +36,6 @@ body {
 
 .navbar a:hover {
     color: var(--primary-green);
-}
-
-.nav-button {
-    background-color: var(--primary-green);
-    padding: 0.75rem 1.5rem;
-    border-radius: 1rem;
-}
-
-.nav-button a {
-    color: var(--background-color);
 }
 
 /* Hero Section */
@@ -75,12 +65,7 @@ body {
 .content-divider {
     width: 60%;
     height: 1px;
-    background: linear-gradient(
-        to right,
-        transparent,
-        var(--primary-green),
-        transparent
-    );
+    background-color: var(--primary-green);
     margin: 1rem auto;
 }
 
@@ -104,19 +89,37 @@ body {
     margin: 0;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--gray-light);
-    color: var(--background-color);
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
+/* Estilo base para botões verdes */
+.cta-button,
+.back-home {
+    background-color: var(--primary-green);
+    color: var(--dark-bg);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-green);
     font-weight: 500;
-    transition: transform 0.3s;
 }
 
-.cta-button:hover {
-    transform: translateY(-3px);
+/* Efeito hover para botões verdes */
+.cta-button:hover,
+.back-home:hover {
+    background-color: transparent;
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+}
+
+/* Garantir que o texto seja legível em ambos os temas */
+[data-theme='light'] .cta-button:hover,
+[data-theme='light'] .back-home:hover {
+    color: var(--primary-green);
+}
+
+[data-theme='dark'] .cta-button:hover,
+[data-theme='dark'] .back-home:hover {
+    color: var(--primary-green);
 }
 
 /* Animações */
@@ -461,8 +464,8 @@ body {
         height: 100%;
         background: linear-gradient(
             90deg,
-            var(--background-color) 0%,
-            var(--background-color) 40%,
+            var(--background) 0%,
+            var(--background) 40%,
             transparent 100%
         );
         z-index: 1;
@@ -508,7 +511,7 @@ body {
         padding: 0.8rem 2rem;
         font-size: 1rem;
         background: var(--primary-green);
-        color: var(--background-color);
+        color: var(--background);
         border-radius: 25px;
         box-shadow: 0 4px 15px rgba(84, 221, 100, 0.3);
         transition: all 0.3s ease;
@@ -622,7 +625,7 @@ body {
         }
 
         .nav-button:hover a {
-            color: var(--background-color) !important;
+            color: var(--background) !important;
         }
     }
 
@@ -966,4 +969,70 @@ body {
         max-width: 80%;
         line-height: 1.6;
     }
+}
+
+/* Variáveis de cores para os temas */
+[data-theme='light'] {
+    --text-color: var(--dark-bg);
+    --background: var(--white);
+    --menu-bg: rgba(255, 255, 255, 0.9);
+    --menu-text: var(--dark-bg);
+    --menu-border: rgba(84, 221, 100, 0.2);
+}
+
+[data-theme='dark'] {
+    --text-color: var(--white);
+    --background: var(--dark-bg);
+    --menu-bg: rgba(38, 37, 42, 0.9);
+    --menu-text: var(--white);
+    --menu-border: rgba(84, 221, 100, 0.2);
+}
+
+/* Aplicar cores aos elementos */
+body {
+    background-color: var(--background);
+}
+
+.typing-text,
+.role,
+.description,
+.welcome-text,
+.portfolio-text,
+.quote,
+h1, h2, p {
+    color: var(--text-color);
+}
+
+/* Ajustes específicos para o menu */
+.navbar {
+    background-color: var(--menu-bg);
+}
+
+.navbar ul li a {
+    color: var(--menu-text);
+}
+
+.theme-toggle,
+.language-toggle {
+    background: var(--menu-bg);
+    border-color: var(--menu-border);
+}
+
+.lang-icon {
+    color: var(--menu-text);
+}
+
+/* Ajustes para outros elementos */
+.content-divider {
+    background-color: var(--primary-green);
+}
+
+.cta-button {
+    color: var(--text-color);
+    border-color: var(--primary-green);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-green);
+    color: var(--background);
 }

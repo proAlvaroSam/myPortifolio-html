@@ -62,20 +62,30 @@
 .service-features {
     list-style: none;
     padding: 0;
+    margin: 1rem 0;
 }
 
 .service-features li {
-    color: var(--white);
+    color: var(--text-color);
     margin: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
 }
 
 .service-features li::before {
-    content: '▹';
+    content: "•";
+    color: var(--primary-green);
     position: absolute;
     left: 0;
-    color: var(--primary-green);
+}
+
+/* Garantir contraste em ambos os temas */
+[data-theme='light'] .service-features li {
+    color: var(--dark-bg);
+}
+
+[data-theme='dark'] .service-features li {
+    color: var(--white);
 }
 
 /* Process Section */
@@ -204,5 +214,74 @@
 
     .dev-tools {
         padding-top: 1rem;
+    }
+}
+
+.skills-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-section h2 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skills-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.skills-card:hover {
+    transform: translateY(-5px);
+}
+
+.skills-card h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background-color: var(--primary-green);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(84, 221, 100, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-section {
+        padding: 1rem;
     }
 } 

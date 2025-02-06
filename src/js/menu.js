@@ -7,13 +7,26 @@ const blurOverlay = document.createElement('div');
 blurOverlay.className = 'blur-overlay';
 document.body.appendChild(blurOverlay);
 
+// Criar botão de fechar
+const closeButton = document.createElement('button');
+closeButton.className = 'close-menu';
+closeButton.innerHTML = '×';
+navbarUl.appendChild(closeButton);
+
 // Função para abrir/fechar o menu
 function toggleMenu() {
-    console.log('Toggle menu clicked'); // Debug
     menuToggle.classList.toggle('active');
     navbarUl.classList.toggle('active');
     blurOverlay.classList.toggle('active');
     body.classList.toggle('menu-open');
+}
+
+// Função para fechar o menu
+function closeMenu() {
+    menuToggle.classList.remove('active');
+    navbarUl.classList.remove('active');
+    blurOverlay.classList.remove('active');
+    body.classList.remove('menu-open');
 }
 
 // Event listeners
@@ -22,15 +35,23 @@ menuToggle.addEventListener('click', (e) => {
     toggleMenu();
 });
 
+// Fechar menu ao clicar no botão de fechar
+closeButton.addEventListener('click', closeMenu);
+
 // Fechar menu ao clicar no overlay
-blurOverlay.addEventListener('click', toggleMenu);
+blurOverlay.addEventListener('click', closeMenu);
 
 // Fechar menu ao clicar em um link
 const navLinks = document.querySelectorAll('.navbar ul li a');
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        toggleMenu();
-    });
+    link.addEventListener('click', closeMenu);
+});
+
+// Fechar menu ao pressionar ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMenu();
+    }
 });
 
 // Adicionar delay na animação dos links

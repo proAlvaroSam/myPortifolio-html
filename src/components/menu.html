@@ -1,15 +1,33 @@
+<head>
+    <link rel="stylesheet" href="./src/styles/menu.css">
+    <link rel="stylesheet" href="./src/styles/buttons.css">
+</head>
+
 <header>
     <nav class="navbar">
+        <div class="toggle-buttons">
+            <button class="theme-toggle" aria-label="Alternar tema">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="language-toggle" aria-label="Alternar idioma">
+                <span class="lang-icon">EN</span>
+            </button>
+        </div>
         <button class="menu-toggle">
             <span class="hamburger"></span>
         </button>
         <ul>
-            <li><a href="index.html">home</a></li>
-            <li><a href="about.html">about</a></li>
-            <li><a href="services.html">services</a></li>
-            <li><a href="construction.html">portfolio</a></li>
-            <li><a href="contact.html">contact Me</a></li>
-            <li class="nav-button"><a href="construction.html">study Corner</a></li>
+            <li><a href="index.html" data-translate="home">home</a></li>
+            <li><a href="about.html" data-translate="about">about</a></li>
+            <li><a href="services.html" data-translate="services">services</a></li>
+            <li><a href="construction.html" data-translate="portfolio">portfolio</a></li>
+            <li><a href="contact.html" data-translate="contact">contact Me</a></li>
+            <li><a href="construction.html" class="study-corner" data-translate="study">study Corner</a></li>
         </ul>
     </nav>
+
+    <!-- Scripts do menu -->
+    <script src="./src/js/menu.js"></script>
+    <script src="./src/js/themeLanguage.js"></script>
+    <div id="google_translate_element" style="display: none;"></div>
 </header> 

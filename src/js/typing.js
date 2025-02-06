@@ -1,32 +1,56 @@
-const texts = ["Hello,\nWorld!!", "I'm Dev,\nÁlvaro!!"];
-const typingText = document.querySelector('.typing-text');
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-    const currentText = texts[textIndex];
+function typeWriter() {
+    const currentLang = localStorage.getItem('language') || 'en';
     
-    if (isDeleting) {
-        typingText.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typingText.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
+    const texts = {
+        'en': [
+            "Hello, World!!",
+            "I'm Dev, Álvaro"
+        ],
+        'pt': [
+            "Olá, Mundo!!",
+            "Sou Dev, Álvaro"
+        ]
+    };
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    const typingText = document.querySelector('.typing-text');
+    const currentTexts = texts[currentLang];
+    
+    function type() {
+        if (textIndex >= currentTexts.length) {
+            textIndex = 0;
+        }
+        
+        if (charIndex < currentTexts[textIndex].length) {
+            typingText.textContent += currentTexts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(erase, 2000);
+        }
     }
-
-    if (!isDeleting && charIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(type, 2000);
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        setTimeout(type, 500);
-    } else {
-        setTimeout(type, isDeleting ? 100 : 200);
+    
+    function erase() {
+        if (charIndex > 0) {
+            typingText.textContent = currentTexts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 50);
+        } else {
+            textIndex++;
+            setTimeout(type, 500);
+        }
     }
+    
+    type();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(type, 1000);
-}); 
+// Inicia a animação
+document.addEventListener('DOMContentLoaded', typeWriter);
+
+// Reinicia a animação quando o idioma mudar
+document.addEventListener('languageChanged', function() {
+    const typingText = document.querySelector('.typing-text');
+    typingText.textContent = '';
+    typeWriter();
+});

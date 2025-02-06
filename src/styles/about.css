@@ -17,7 +17,7 @@
 }
 
 .intro-text {
-    color: var(--white); /* Alterado para branco */
+    color: var(--text-color);
     font-size: 1.2rem;
     line-height: 1.8;
     max-width: 800px;
@@ -33,10 +33,10 @@
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid rgba(84, 221, 100, 0.1);
+    border: 1px solid var(--card-border);
     transition: transform 0.3s ease;
 }
 
@@ -56,10 +56,17 @@
 }
 
 .skill-card li {
-    color: var(--white); /* Alterado para branco */
+    color: var(--text-color);
     margin: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
+}
+
+.skill-card li::before {
+    content: "•";
+    color: var(--primary-green);
+    position: absolute;
+    left: 0;
 }
 
 /* Seção Jornada */
@@ -69,7 +76,7 @@
 }
 
 .timeline-content p {
-    color: var(--white); /* Alterado para branco */
+    color: var(--text-color);
 }
 
 /* Seção Objetivos */
@@ -94,7 +101,7 @@
 }
 
 .goal-card p {
-    color: var(--white); /* Alterado para branco */
+    color: var(--text-color);
     line-height: 1.6;
 }
 
