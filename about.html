@@ -20,9 +20,9 @@
     <main class="about-main">
         <!-- Seção Introdução -->
         <section class="about-section intro">
-            <h1>My Journey</h1>
+            <h1 data-translate="journey-title">My Journey</h1>
             <div class="content-divider"></div>
-            <p class="intro-text">
+            <p class="intro-text" data-translate="journey-intro">
                 Hello! I'm Álvaro, a passionate developer creating innovative solutions.
 
                 My programming journey began with curiosity about how things work,
@@ -32,87 +32,84 @@
         </section>
 
         <!-- Seção Habilidades -->
-        <section class="about-section skills">
-            <h2>My Skills</h2>
+        <section class="skills-section">
+            <h2 data-translate="skills-title">Skills & Technologies</h2>
             <div class="skills-grid">
+                <!-- Data Analysis Skills -->
                 <div class="skill-card">
+                    <h3 data-translate="data-skills-title">Data Analysis</h3>
+                    <ul>
+                        <li data-translate="data-skill-1">Data collection and preprocessing</li>
+                        <li data-translate="data-skill-2">Statistical analysis</li>
+                        <li data-translate="data-skill-3">Data visualization</li>
+                        <li data-translate="data-skill-4">Machine learning</li>
+                        <li data-translate="data-skill-5">Business intelligence</li>
+                    </ul>
+                </div>
 
-                    <h3>Front-end</h3>
+                <!-- Development Skills -->
+                <div class="skill-card">
+                    <h3 data-translate="dev-skills-title">Development</h3>
                     <ul>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
+                        <li data-translate="dev-skill-1">Frontend (HTML, CSS, JavaScript)</li>
+                        <li data-translate="dev-skill-2">Backend (Python, Node.js)</li>
+                        <li data-translate="dev-skill-3">Database management</li>
+                        <li data-translate="dev-skill-4">API development</li>
+                        <li data-translate="dev-skill-5">Version control (Git)</li>
                     </ul>
                 </div>
+
+                <!-- Design Skills -->
                 <div class="skill-card">
-                    <h3>Back-end</h3>
+                    <h3 data-translate="design-skills-title">UI/UX Design</h3>
                     <ul>
-                        <li>Python</li>
-                        <li>Node.js</li>
-                        <li>SQL</li>
-                        <li>APIs REST</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>UI/UX Design</h3>
-                    <ul>
-                        <li>Figma</li>
-                        <li>Adobe XD</li>
-                        <li>Prototipagem</li>
-                        <li>Design Responsivo</li>
+                        <li data-translate="design-skill-1">User interface design</li>
+                        <li data-translate="design-skill-2">Prototyping</li>
+                        <li data-translate="design-skill-3">User research</li>
+                        <li data-translate="design-skill-4">Design systems</li>
+                        <li data-translate="design-skill-5">Responsive design</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Jornada -->
-        <section class="about-section journey">
-            <h2>My Journey</h2>
+        <!-- Seção Timeline -->
+        <section class="timeline-section">
+            <h2 data-translate="journey-title">My Journey</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-content">
-
-                        <h3>2023</h3>
-                        <p>Start of studies in web development and programming</p>
-                    </div>
+                    <h3 data-translate="timeline-2023">2023</h3>
+                    <p data-translate="timeline-2023-desc">Start of studies in web development and programming</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>2024</h3>
-                        <p>Development of personal projects and deepening in modern technologies</p>
-                    </div>
+                    <h3 data-translate="timeline-2024">2024</h3>
+                    <p data-translate="timeline-2024-desc">Development of personal projects and deepening in modern technologies</p>
                 </div>
-
             </div>
         </section>
 
         <!-- Seção Objetivos -->
-        <section class="about-section goals">
-            <h2>My Goals</h2>
+        <section class="goals-section">
+            <h2 data-translate="goals-title">My Goals</h2>
             <div class="goals-grid">
                 <div class="goal-card">
-
-                    <h3>Short-term</h3>
-                    <p>Improve skills in web development and expand knowledge in new technologies</p>
-                </div>
-
-                <div class="goal-card">
-                    <h3>Medium-term</h3>
-                    <p>Develop more complex projects and contribute to the open source community</p>
+                    <h3 data-translate="short-term-title">Short-term</h3>
+                    <p data-translate="short-term-desc">Improve skills in web development and expand knowledge in new technologies</p>
                 </div>
                 <div class="goal-card">
-
-                    <h3>Long-term</h3>
-                    <p>Create innovative solutions that positively impact people's lives</p>
+                    <h3 data-translate="medium-term-title">Medium-term</h3>
+                    <p data-translate="medium-term-desc">Develop more complex projects and contribute to the open source community</p>
+                </div>
+                <div class="goal-card">
+                    <h3 data-translate="long-term-title">Long-term</h3>
+                    <p data-translate="long-term-desc">Create innovative solutions that positively impact people's lives</p>
                 </div>
             </div>
-
         </section>
     </main>
 
-    <script src="./src/js/menu.js"></script>
     <script src="./src/js/includeMenu.js"></script>
+    <script src="./src/js/menu.js"></script>
+    <script src="./src/js/translations/aboutTranslations.js"></script>
 </body>
 </html> 

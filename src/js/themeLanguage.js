@@ -1,106 +1,97 @@
+// Traduções do menu (comum a todas as páginas)
+const menuTranslations = {
+    'en': {
+        'home': 'home',
+        'about': 'about',
+        'services': 'services',
+        'portfolio': 'portfolio',
+        'contact': 'contact Me',
+        'study': 'study Corner'
+    },
+    'pt': {
+        'home': 'início',
+        'about': 'sobre',
+        'services': 'serviços',
+        'portfolio': 'portfólio',
+        'contact': 'contato',
+        'study': 'área de estudos'
+    }
+};
+
+function toggleLanguage() {
+    const currentLang = localStorage.getItem('language') || 'en';
+    const newLang = currentLang === 'en' ? 'pt' : 'en';
+    
+    // Atualiza o localStorage
+    localStorage.setItem('language', newLang);
+    
+    // Atualiza o ícone
+    const icon = document.querySelector('.lang-icon');
+    if (icon) {
+        icon.textContent = newLang.toUpperCase();
+    }
+    
+    // Atualiza as traduções do menu
+    setMenuLanguage(newLang);
+    
+    // Dispara evento para notificar outras páginas
+    const event = new CustomEvent('languageChanged', { detail: newLang });
+    document.dispatchEvent(event);
+}
+
+function setMenuLanguage(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (menuTranslations[lang] && menuTranslations[lang][key]) {
+            element.textContent = menuTranslations[lang][key];
+        }
+    });
+}
+
+// Inicialização
 function initThemeAndLanguage() {
-    const translations = {
-        'en': {
-            'home': 'home',
-            'about': 'about',
-            'services': 'services',
-            'portfolio': 'portfolio',
-            'contact': 'contact Me',
-            'study': 'study Corner'
-        },
-        'pt': {
-            'home': 'início',
-            'about': 'sobre',
-            'services': 'serviços',
-            'portfolio': 'portfólio',
-            'contact': 'contato',
-            'study': 'área de estudos'
-        }
-    };
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const currentLang = localStorage.getItem('language') || 'en';
+    
+    const langIcon = document.querySelector('.lang-icon');
+    if (langIcon) {
+        langIcon.textContent = currentLang.toUpperCase();
+    }
+    
+    setMenuLanguage(currentLang);
+    
+    const themeIcon = document.querySelector('.theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    }
+}
 
-    const themeToggle = document.querySelector('.theme-toggle');
-    const languageToggle = document.querySelector('.language-toggle');
-    let translateWidget = null;
-    
-    // Carregar preferências salvas
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    const currentLang = 'en'; // Força início em inglês
-    localStorage.setItem('language', currentLang); // Salva inglês como padrão
-    
-    // Aplicar tema inicial
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-    
-    // Aplicar idioma inicial
-    setLanguage(currentLang);
-    updateLanguageIcon(currentLang);
-    
-    // Event Listeners
+// Event Listeners
+document.addEventListener('DOMContentLoaded', initThemeAndLanguage);
+
+const themeToggle = document.querySelector('.theme-toggle');
+const languageToggle = document.querySelector('.language-toggle');
+
+if (themeToggle) {
     themeToggle.addEventListener('click', toggleTheme);
+}
+
+if (languageToggle) {
     languageToggle.addEventListener('click', toggleLanguage);
+}
 
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-        
-        // Força atualização das cores
-        document.body.style.backgroundColor = getComputedStyle(document.documentElement)
-            .getPropertyValue('--background');
-    }
-
-    function updateThemeIcon(theme) {
-        const icon = document.querySelector('.theme-icon');
-        icon.textContent = theme === 'dark' ? '🌙' : '☀️';
-    }
-
-    function toggleLanguage() {
-        const currentLang = localStorage.getItem('language') || 'en';
-        const newLang = currentLang === 'en' ? 'pt' : 'en';
-        
-        if (newLang === 'pt' && !translateWidget) {
-            loadGoogleTranslate();
-        } else if (newLang === 'en' && translateWidget) {
-            location.reload();
-            return;
-        }
-        
-        setLanguage(newLang);
-        localStorage.setItem('language', newLang);
-        updateLanguageIcon(newLang);
-    }
-
-    function setLanguage(lang) {
-        const elements = document.querySelectorAll('[data-translate]');
-        elements.forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
-        });
-    }
-
-    function updateLanguageIcon(lang) {
-        const icon = document.querySelector('.lang-icon');
-        icon.textContent = lang.toUpperCase();
-    }
-
-    function loadGoogleTranslate() {
-        if (!translateWidget) {
-            const script = document.createElement('script');
-            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            document.body.appendChild(script);
-            
-            window.googleTranslateElementInit = function() {
-                translateWidget = new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'pt,en',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-            };
-        }
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    const icon = document.querySelector('.theme-icon');
+    if (icon) {
+        icon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
     }
 } 

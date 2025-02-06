@@ -30,61 +30,62 @@
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
     padding: 2rem;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(84, 221, 100, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     border-color: var(--primary-green);
 }
 
-.service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.service-card h3 {
+.service-card h2 {
     color: var(--primary-green);
-    font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-size: 1.8rem;
 }
 
 .service-card p {
-    color: var(--white);
+    color: var(--text-color);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
-.service-features {
+.service-card ul {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
 }
 
-.service-features li {
+.service-card ul li {
     color: var(--text-color);
-    margin: 0.5rem 0;
+    margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
+    line-height: 1.4;
 }
 
-.service-features li::before {
+.service-card ul li:before {
     content: "•";
     color: var(--primary-green);
     position: absolute;
     left: 0;
+    font-size: 1.2rem;
+}
+
+.service-card ul li:last-child {
+    margin-bottom: 0;
 }
 
 /* Garantir contraste em ambos os temas */
-[data-theme='light'] .service-features li {
+[data-theme='light'] .service-card ul li {
     color: var(--dark-bg);
 }
 
-[data-theme='dark'] .service-features li {
+[data-theme='dark'] .service-card ul li {
     color: var(--white);
 }
 

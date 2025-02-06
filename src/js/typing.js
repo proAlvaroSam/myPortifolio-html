@@ -1,30 +1,28 @@
 function typeWriter() {
-    // Pega o idioma atual do localStorage, com fallback para 'en'
-    const currentLang = localStorage.getItem('language') || 'en';
-    
-    const texts = {
-        'en': [
-            "Hello, World!!",
-            "I'm Dev, Álvaro"
-        ],
-        'pt': [
-            "Olá, Mundo!!",
-            "Sou Dev, Álvaro"
-        ]
-    };
+    // Textos sempre em inglês
+    const texts = [
+        "Hello, World!!",
+        "I'm Dev, Álvaro"
+    ];
     
     let textIndex = 0;
     let charIndex = 0;
     const typingText = document.querySelector('.typing-text');
-    const currentTexts = texts[currentLang];
+    
+    // Limpa o texto anterior
+    if (typingText) {
+        typingText.textContent = '';
+    }
     
     function type() {
-        if (textIndex >= currentTexts.length) {
+        if (!typingText) return;
+        
+        if (textIndex >= texts.length) {
             textIndex = 0;
         }
         
-        if (charIndex < currentTexts[textIndex].length) {
-            typingText.textContent += currentTexts[textIndex].charAt(charIndex);
+        if (charIndex < texts[textIndex].length) {
+            typingText.textContent += texts[textIndex].charAt(charIndex);
             charIndex++;
             setTimeout(type, 100);
         } else {
@@ -33,8 +31,10 @@ function typeWriter() {
     }
     
     function erase() {
+        if (!typingText) return;
+        
         if (charIndex > 0) {
-            typingText.textContent = currentTexts[textIndex].substring(0, charIndex - 1);
+            typingText.textContent = texts[textIndex].substring(0, charIndex - 1);
             charIndex--;
             setTimeout(erase, 50);
         } else {
@@ -48,10 +48,3 @@ function typeWriter() {
 
 // Inicia a animação
 document.addEventListener('DOMContentLoaded', typeWriter);
-
-// Reinicia a animação quando o idioma mudar
-document.addEventListener('languageChanged', function() {
-    const typingText = document.querySelector('.typing-text');
-    typingText.textContent = '';
-    typeWriter();
-});

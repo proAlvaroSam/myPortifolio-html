@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Álvaro</title>
+    <title>Contact - Álvaro</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,46 +16,46 @@
     <link rel="stylesheet" href="src/styles/buttons.css">
 </head>
 <body>
-    <!-- O menu será inserido aqui automaticamente -->
     <main class="contact-main">
         <section class="contact-hero">
-            <h1>Let's Connect!</h1>
+            <h1 data-translate="contact-title">Let's Connect!</h1>
             <div class="content-divider"></div>
-            <p class="contact-subtitle">Choose how you want to get in touch</p>
+            <p class="contact-subtitle" data-translate="contact-subtitle">Choose how you want to get in touch</p>
         </section>
 
         <section class="contact-options">
             <div class="contact-card">
-                <div class="card-icon">📧</div>
-                <h3>Email</h3>
-                <p>Send me a message anytime</p>
-                <a href="mailto:pro.alvaro.sam@gmail.com" class="contact-button">Email Me</a>
+                <span class="card-emoji">📧</span>
+                <h2>Email</h2>
+                <p data-translate="email-desc">Send me a message anytime</p>
+                <a href="mailto:your.email@example.com" class="contact-button" data-translate="email-button">Email Me</a>
             </div>
 
             <div class="contact-card">
-                <div class="card-icon">💼</div>
-                <h3>LinkedIn</h3>
-                <p>Let's connect professionally</p>
-                <a href="https://www.linkedin.com/in/by-dev-sam/" target="_blank" class="contact-button">Connect</a>
+                <span class="card-emoji">💼</span>
+                <h2>LinkedIn</h2>
+                <p data-translate="linkedin-desc">Let's connect professionally</p>
+                <a href="https://linkedin.com/in/your-profile" class="contact-button" data-translate="linkedin-button">Connect</a>
             </div>
 
             <div class="contact-card">
-                <div class="card-icon">💻</div>
-                <h3>GitHub</h3>
-                <p>Check out my projects</p>
-                <a href="https://github.com/proAlvaroSam" target="_blank" class="contact-button">Follow Me</a>
+                <span class="card-emoji">👨‍💻</span>
+                <h2>GitHub</h2>
+                <p data-translate="github-desc">Check out my projects</p>
+                <a href="https://github.com/your-username" class="contact-button" data-translate="github-button">Follow Me</a>
             </div>
 
             <div class="contact-card">
-                <div class="card-icon">💬</div>
-                <h3>WhatsApp</h3>
-                <p>Let's chat directly</p>
-                <a href="https://wa.me/5582998358859" target="_blank" class="contact-button">Message Me</a>
+                <span class="card-emoji">💬</span>
+                <h2>WhatsApp</h2>
+                <p data-translate="whatsapp-desc">Let's chat directly</p>
+                <a href="https://wa.me/your-number" class="contact-button" data-translate="whatsapp-button">Message Me</a>
             </div>
         </section>
     </main>
 
-    <script src="./src/js/menu.js"></script>
     <script src="./src/js/includeMenu.js"></script>
+    <script src="./src/js/menu.js"></script>
+    <script src="./src/js/translations/contactTranslations.js"></script>
 </body>
 </html> 
