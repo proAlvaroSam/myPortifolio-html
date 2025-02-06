@@ -72,4 +72,14 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
-}); 
+});
+
+function initMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbarUl = document.querySelector('.navbar ul');
+    
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navbarUl.classList.toggle('active');
+    });
+} 

@@ -34,7 +34,15 @@
 }
 
 .nav-button a {
-    color: var(--background-color);
+    color: var(--background-color) !important;
+}
+
+.nav-button:hover {
+    background-color: var(--white);
+}
+
+.nav-button:hover a {
+    color: var(--background-color) !important;
 }
 
 /* Menu Hamburguer */
