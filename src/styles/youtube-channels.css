@@ -1,0 +1,196 @@
+.channels-main {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.channels-hero {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.channels-hero h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Tamanho responsivo */
+    margin-bottom: 1rem;
+}
+
+.channels-subtitle {
+    color: var(--text-color);
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Tamanho responsivo */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.channels-grid {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.channel-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.05));
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(84, 221, 100, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para mensagens pessoais */
+.personal-message {
+    background: rgba(84, 221, 100, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.personal-message p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.personal-message p:last-child {
+    margin-bottom: 0;
+}
+
+.channel-info {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.channel-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.channel-text {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.channel-text h3 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.channel-info-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.subscribers {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.description {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.featured-video {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.featured-video h4 {
+    margin: 0 0 15px 0;
+    color: var(--text-primary);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Removendo os estilos de posicionamento left/right */
+.card-left, .card-right {
+    align-self: center;
+}
+
+@media (max-width: 1024px) {
+    .channels-hero,
+    .channels-grid,
+    .channel-card {
+        padding: 1rem;
+    }
+    
+    .channel-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .channel-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .channels-hero {
+        padding: 1rem;
+    }
+
+    .channels-hero h1 {
+        font-size: 2rem;
+    }
+
+    .channel-card {
+        padding: 1.5rem;
+    }
+
+    .channel-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .channel-text {
+        text-align: center;
+        margin-top: 1rem;
+        align-items: center;
+    }
+} 

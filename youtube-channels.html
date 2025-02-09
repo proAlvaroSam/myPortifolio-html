@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canais Recomendados - Study Corner</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./src/styles/colors.css">
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="stylesheet" href="./src/styles/menu.css">
+    <link rel="stylesheet" href="./src/styles/youtube-channels.css">
+</head>
+<body>
+    <!-- O menu será inserido aqui automaticamente -->
+    <main class="channels-main">
+        <section class="channels-hero">
+            <h1 data-translate="channels-title">Canais Recomendados</h1>
+            <div class="content-divider"></div>
+            <p class="channels-subtitle" data-translate="channels-subtitle">Uma seleção especial de canais que me ajudaram na jornada dev</p>
+        </section>
+
+        <section class="channels-grid">
+            <!-- Os cards serão inseridos aqui via JavaScript -->
+        </section>
+    </main>
+
+    <!-- Carregar traduções primeiro -->
+    <script src="./src/js/translations/channelsTranslations.js"></script>
+    
+    <!-- Depois carregar o menu e outros scripts -->
+    <script src="./src/js/menu.js"></script>
+    <script src="./src/js/includeMenu.js"></script>
+    <script src="./src/js/translate.js"></script>
+    <script src="./src/js/components/channelCards.js"></script>
+</body>
+</html> 

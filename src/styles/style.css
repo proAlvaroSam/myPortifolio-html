@@ -6,7 +6,23 @@
 }
 
 body {
-    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: auto; /* Permite scroll quando necessário */
+    min-height: 100vh;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start; /* Alinha ao topo em vez de center */
+    justify-content: space-between;
+    padding: 6rem 4rem 4rem; /* Aumenta padding-top para compensar o menu */
+    margin: 0;
+    position: relative;
 }
 
 /* Navegação */
@@ -40,26 +56,23 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 0;
-    min-height: unset;
+    width: 100%;
+    min-width: 300px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento consistente entre elementos */
 }
 
 .hero-content {
-    padding: 1rem;
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    height: auto; /* Permite que o conteúdo cresça naturalmente */
 }
 
 .hero h1 {
-    font-size: 4rem;
-    color: var(--white);
-    border-bottom: 2px solid var(--primary-green);
-    padding-bottom: 1rem;
-    margin-bottom: 0;
+    margin-top: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
 .content-divider {
@@ -150,18 +163,18 @@ body {
 
 /* About Me Section */
 .about-me {
-    padding: 0;
-    min-height: unset;
+    width: 100%;
+    min-width: 300px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento consistente entre elementos */
 }
 
 .about-content {
-    padding: 1rem;
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    height: auto; /* Permite que o conteúdo cresça naturalmente */
 }
 
 .about-content h2 {
@@ -264,29 +277,39 @@ body {
 }
 
 /* Media Queries para Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     main {
-        display: flex;
+        padding: 5rem 2rem 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
         flex-direction: column;
-        padding: 0 1rem;
+        padding: 4rem 2rem 2rem;
         gap: 2rem;
-        height: auto;
-        margin-top: 60px;
     }
 
     .hero,
     .about-me {
         width: 100%;
-        overflow: hidden;
-        position: relative;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 4rem 1rem 2rem;
     }
 
-    .hero-content,
+    .hero-content, 
     .about-content {
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
+        padding: 0;
+    }
+
+    body {
+        overflow-y: auto;
     }
 
     .hero h1 {
@@ -1035,4 +1058,13 @@ h1, h2, p {
 .cta-button:hover {
     background-color: var(--primary-green);
     color: var(--background);
+}
+
+/* Novo estilo para o container do botão */
+.hero-content p {
+    margin-bottom: 2rem; /* Espaço entre o texto e o botão */
+}
+
+.here-me-button {
+    margin-top: 1rem; /* Espaço adicional acima do botão */
 }

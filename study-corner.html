@@ -17,59 +17,34 @@
 <body>
     <!-- O menu será inserido aqui automaticamente -->
     <main class="study-main">
-        <section class="study-hero">
-            <h1 data-translate="study-title">Canto de Estudos</h1>
-            <div class="content-divider"></div>
-            <p class="study-subtitle" data-translate="study-subtitle">Recursos e guias para aprender programação</p>
-            <p class="study-message" data-translate="study-message">Eu criei este canto para que eu e você possamos estudar juntos!</p>
-            
-            <!-- Aviso atualizado -->
-            <div class="construction-notice">
-                <p data-translate="construction-notice">
-                    <span class="notice-content">
-                        🚧 Esta página está em construção! Em breve, trarei conteúdos incríveis sobre programação, 
-                        tutoriais detalhados e recursos úteis para ajudar em sua jornada de aprendizado. Fique ligado! 😊
-                    </span>
-                </p>
-            </div>
-        </section>
+        <header class="study-corner-header">
+            <h1 data-translate="study-corner-title">Canto de Estudos</h1>
+            <p class="subtitle" data-translate="study-corner-subtitle">Recursos e guias para aprender programação</p>
+            <p class="description" data-translate="study-corner-description">Eu criei este canto para que eu e você possamos estudar juntos!</p>
+            <p class="construction-notice" data-translate="construction-message">🚧 Esta página está em construção! Em breve, trarei conteúdos incríveis sobre programação, tutoriais detalhados e recursos úteis para ajudar em sua jornada de aprendizado. Fique ligado! 😊</p>
+        </header>
 
         <div class="content-wrapper">
             <section class="study-categories">
                 <div class="category-card">
                     <h2>Documentação</h2>
-                    <p class="category-description">Aqui você encontrará tutoriais, guias e dicas para ajudar em sua jornada de programação.</p>
+                    <p class="category-description">Documentações oficiais e guias de referência.</p>
                     
                     <div class="category-items">
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">📝</span>
-                                <div class="item-info">
-                                    <h3>Guia HTML & CSS</h3>
-                                    <p>Aprenda os fundamentos do desenvolvimento web</p>
-                                </div>
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">📖</div>
+                            <div class="item-info">
+                                <h3>Documentações</h3>
+                                <p>Documentações oficiais de tecnologias</p>
                             </div>
                             <span class="item-status">🔒 Em breve</span>
                         </a>
 
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">🚀</span>
-                                <div class="item-info">
-                                    <h3>JavaScript Básico</h3>
-                                    <p>Introdução à programação com JavaScript</p>
-                                </div>
-                            </div>
-                            <span class="item-status">🔒 Em breve</span>
-                        </a>
-
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">💡</span>
-                                <div class="item-info">
-                                    <h3>Dicas para Iniciantes</h3>
-                                    <p>Melhores práticas para começar a programar</p>
-                                </div>
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🎓</div>
+                            <div class="item-info">
+                                <h3>Guias de Estudo</h3>
+                                <p>Guias para aprender novas tecnologias</p>
                             </div>
                             <span class="item-status">🔒 Em breve</span>
                         </a>
@@ -77,115 +52,119 @@
                 </div>
 
                 <div class="category-card">
-                    <h2>Ferramentas Recomendadas</h2>
-                    <p class="category-description">Conheça as melhores ferramentas para desenvolvedores.</p>
+                    <h2 data-translate="recommended-tools">Ferramentas Recomendadas</h2>
+                    <p class="category-description" data-translate="recommended-tools-desc">Ferramentas que uso no dia a dia.</p>
                     
                     <div class="category-items">
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">💻</span>
-                                <div class="item-info">
-                                    <h3>Editores de Código</h3>
-                                    <p>As melhores opções para programar</p>
-                                </div>
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">⚡</div>
+                            <div class="item-info">
+                                <h3 data-translate="vscode-extensions">VSCode Extensions</h3>
+                                <p data-translate="vscode-extensions-desc">Extensões que uso no VSCode</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">🔧</span>
-                                <div class="item-info">
-                                    <h3>Extensões VSCode</h3>
-                                    <p>Adicione mais funcionalidades ao VSCode</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🎨</div>
+                            <div class="item-info">
+                                <h3 data-translate="design-tools">Design Tools</h3>
+                                <p data-translate="design-tools-desc">Ferramentas para design e prototipagem</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">🛠️</span>
-                                <div class="item-info">
-                                    <h3>Ferramentas Dev</h3>
-                                    <p>Ferramentas úteis para desenvolvedores</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🔧</div>
+                            <div class="item-info">
+                                <h3 data-translate="utilities">Utilitários</h3>
+                                <p data-translate="utilities-desc">Ferramentas úteis para produtividade</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <h2>Conteúdo de Aprendizado</h2>
-                    <p class="category-description">Descubra novos canais e cursos para aprender mais sobre programação.</p>
+                    <h2 data-translate="learning-content">Conteúdo de Aprendizado</h2>
+                    <p class="category-description" data-translate="learning-content-desc">Descubra novos canais e cursos para aprender mais sobre programação.</p>
                     
                     <div class="category-items">
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">📺</span>
-                                <div class="item-info">
-                                    <h3>Canais do YouTube</h3>
-                                    <p>Assista vídeos sobre programação</p>
-                                </div>
+                        <a href="youtube-channels.html" class="item">
+                            <div class="item-icon">📺</div>
+                            <div class="item-info">
+                                <h3 data-translate="channels">Canais</h3>
+                                <p data-translate="channels-description">Canais que me ajudaram na jornada dev.</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-available">💫 Disponível</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">🎓</span>
-                                <div class="item-info">
-                                    <h3>Cursos Gratuitos</h3>
-                                    <p>Aprenda programação sem pagar nada</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">💻</div>
+                            <div class="item-info">
+                                <h3 data-translate="free-courses">Cursos Gratuitos</h3>
+                                <p data-translate="free-courses-desc">Aprenda programação sem pagar nada</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">📚</span>
-                                <div class="item-info">
-                                    <h3>Recomendações de Livros</h3>
-                                    <p>Leia livros sobre programação</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">📚</div>
+                            <div class="item-info">
+                                <h3 data-translate="book-recommendations">Recomendações de Livros</h3>
+                                <p data-translate="book-recommendations-desc">Leia livros sobre programação</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <h2>Prática & Desafios</h2>
-                    <p class="category-description">Pratique e desafie-se com projetos reais.</p>
+                    <h2 data-translate="practice-challenges">Prática & Desafios</h2>
+                    <p class="category-description" data-translate="practice-challenges-desc">Pratique e desafie-se com projetos reais.</p>
                     
                     <div class="category-items">
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">⌨️</span>
-                                <div class="item-info">
-                                    <h3>Sites de Programação</h3>
-                                    <p>Codifique e aprenda com projetos práticos</p>
-                                </div>
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🎯</div>
+                            <div class="item-info">
+                                <h3 data-translate="programming-sites">Sites de Programação</h3>
+                                <p data-translate="programming-sites-desc">Codifique e aprenda com projetos práticos</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">💡</span>
-                                <div class="item-info">
-                                    <h3>Ideias de Projetos</h3>
-                                    <p>Inspire-se com novas ideias</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">💡</div>
+                            <div class="item-info">
+                                <h3 data-translate="project-ideas">Ideias de Projetos</h3>
+                                <p data-translate="project-ideas-desc">Inspire-se com novas ideias</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
-                        <a href="construction.html" class="category-item">
-                            <div class="item-header">
-                                <span class="item-icon">🎯</span>
-                                <div class="item-info">
-                                    <h3>Desafios Semanais</h3>
-                                    <p>Aumente seu nível de programação</p>
-                                </div>
+
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🎮</div>
+                            <div class="item-info">
+                                <h3 data-translate="weekly-challenges">Desafios Semanais</h3>
+                                <p data-translate="weekly-challenges-desc">Aumente seu nível de programação</p>
                             </div>
-                            <span class="item-status">🔒 Em breve</span>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <h2 data-translate="tools">Ferramentas</h2>
+                    <p class="category-description" data-translate="tools-desc">Ferramentas úteis para desenvolvedores</p>
+                    
+                    <div class="category-items">
+                        <a href="construction.html" class="item">
+                            <div class="item-icon">🛠️</div>
+                            <div class="item-info">
+                                <h3 data-translate="dev-tools">Dev Tools</h3>
+                                <p data-translate="dev-tools-desc">Ferramentas úteis para desenvolvedores</p>
+                            </div>
+                            <span class="item-status" data-translate="status-soon">🔒 Em breve</span>
                         </a>
                     </div>
                 </div>
@@ -193,8 +172,10 @@
         </div>
     </main>
 
+    <!-- No final do body -->
+    <script src="./src/js/translations/translations.js"></script>
+    <script src="./src/js/translate.js"></script>
     <script src="./src/js/includeMenu.js"></script>
     <script src="./src/js/menu.js"></script>
-    <script src="./src/js/translations/studyTranslations.js"></script>
 </body>
 </html>
