@@ -3,13 +3,13 @@ const constructionTranslations = {
         'construction-title': '🚧 Under Construction 🚧',
         'construction-message': 'We are working to bring something amazing!',
         'construction-subtitle': 'We will update soon...',
-        'back-home': 'Back to Home'
+        'back-home': 'Go Back'
     },
     'pt': {
         'construction-title': '🚧 Em Construção 🚧',
         'construction-message': 'Estamos trabalhando para trazer algo incrível!',
         'construction-subtitle': 'Atualizaremos em breve...',
-        'back-home': 'Voltar para o Início'
+        'back-home': 'Voltar'
     }
 };
 
