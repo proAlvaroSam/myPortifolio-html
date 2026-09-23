@@ -1,106 +1,81 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const navbarUl = document.querySelector('.navbar ul');
-const body = document.body;
-
-// Criar o elemento de blur overlay
-const blurOverlay = document.createElement('div');
-blurOverlay.className = 'blur-overlay';
-document.body.appendChild(blurOverlay);
-
-// Criar botão de fechar
-const closeButton = document.createElement('button');
-closeButton.className = 'close-menu';
-closeButton.innerHTML = '×';
-navbarUl.appendChild(closeButton);
-
-// Função para abrir/fechar o menu
-function toggleMenu() {
-    menuToggle.classList.toggle('active');
-    navbarUl.classList.toggle('active');
-    blurOverlay.classList.toggle('active');
-    body.classList.toggle('menu-open');
-}
-
-// Função para fechar o menu
-function closeMenu() {
-    menuToggle.classList.remove('active');
-    navbarUl.classList.remove('active');
-    blurOverlay.classList.remove('active');
-    body.classList.remove('menu-open');
-}
-
-// Event listeners
-menuToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleMenu();
-});
-
-// Fechar menu ao clicar no botão de fechar
-closeButton.addEventListener('click', closeMenu);
-
-// Fechar menu ao clicar no overlay
-blurOverlay.addEventListener('click', closeMenu);
-
-// Fechar menu ao clicar em um link
-const navLinks = document.querySelectorAll('.navbar ul li a');
-navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
-
-// Fechar menu ao pressionar ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeMenu();
-    }
-});
-
-// Adicionar delay na animação dos links
-function addLinkAnimations() {
-    const links = document.querySelectorAll('.navbar ul li a');
-    links.forEach((link, index) => {
-        link.style.transitionDelay = `${index * 0.1}s`;
-    });
-}
-
-addLinkAnimations();
-
-// Ajustar visibilidade do menu ao redimensionar
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        navbarUl.classList.remove('active');
-        menuToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-    }
-});
-
-// Ajustar posição do menu ao rolar
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-        navbar.style.transform = 'translateY(0)';
-        return;
-    }
-    
-    if (currentScroll > lastScroll && !navbarUl.classList.contains('active')) {
-        // Scroll Down - esconde o menu
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        // Scroll Up - mostra o menu
-        navbar.style.transform = 'translateY(0)';
-    }
-    
-    lastScroll = currentScroll;
-});
-
+// Menu mobile toggle and scroll behavior
 function initMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navbarUl = document.querySelector('.navbar ul');
-    
-    menuToggle.addEventListener('click', () => {
+    const body = document.body;
+
+    if (!menuToggle || !navbarUl) return;
+
+    // Blur overlay
+    const blurOverlay = document.createElement('div');
+    blurOverlay.className = 'blur-overlay';
+    document.body.appendChild(blurOverlay);
+
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-menu';
+    closeButton.innerHTML = '×';
+    navbarUl.appendChild(closeButton);
+
+    function toggleMenu() {
         menuToggle.classList.toggle('active');
         navbarUl.classList.toggle('active');
+        blurOverlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+        menuToggle.classList.remove('active');
+        navbarUl.classList.remove('active');
+        blurOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
+
+    menuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleMenu();
     });
-} 
+
+    closeButton.addEventListener('click', closeMenu);
+    blurOverlay.addEventListener('click', closeMenu);
+
+    // Close on link click
+    navbarUl.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    // Reset on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
+
+    // Hide/show navbar on scroll
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (!navbar) return;
+        const currentScroll = window.pageYOffset;
+        if (currentScroll <= 0) {
+            navbar.style.transform = 'translateY(0)';
+            return;
+        }
+        if (currentScroll > lastScroll && !navbarUl.classList.contains('active')) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
+    });
+}
+
+// Auto-init on DOMContentLoaded (for dynamic load via includeMenu.js)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMenu);
+} else {
+    initMenu();
+}

@@ -1,5 +1,4 @@
 :root {
-    /* Cores base */
     --white: #ffffff;
     --dark-bg: #26252a;
     --primary-green: #54dd64;
@@ -8,10 +7,10 @@
 
 /* Tema escuro (padrão) */
 [data-theme='dark'] {
-    --background: var(--dark-bg);
-    --text-color: var(--white);
+    --background: #26252a;
+    --text-color: #ffffff;
     --menu-bg: rgba(38, 37, 42, 0.9);
-    --menu-text: var(--white);
+    --menu-text: #ffffff;
     --menu-border: rgba(84, 221, 100, 0.2);
     --card-bg: rgba(255, 255, 255, 0.05);
     --card-border: rgba(84, 221, 100, 0.1);
@@ -19,53 +18,52 @@
 
 /* Tema claro */
 [data-theme='light'] {
-    --background: var(--white);
-    --text-color: var(--dark-bg);
+    --background: #ffffff;
+    --text-color: #26252a;
     --menu-bg: rgba(255, 255, 255, 0.9);
-    --menu-text: var(--dark-bg);
+    --menu-text: #26252a;
     --menu-border: rgba(84, 221, 100, 0.2);
     --card-bg: rgba(38, 37, 42, 0.05);
     --card-border: rgba(84, 221, 100, 0.3);
 }
 
-/* Aplicar cores base */
 body {
     background-color: var(--background);
     color: var(--text-color);
 }
 
-/* Garantir que textos específicos tenham a cor correta */
+/* Textos e títulos */
+h1, h2, h3, p, span {
+    color: var(--text-color);
+}
+
 .typing-text,
 .role,
 .description,
 .welcome-text,
 .portfolio-text,
-.quote,
-h1, h2, h3, p {
-    color: var(--text-color) !important;
+.quote {
+    color: var(--text-color);
 }
 
-/* Ajustes para cards de skills */
+/* Cards */
+.skill-card,
 .skills-card {
-    background-color: var(--card-bg) !important;
-    border: 1px solid var(--card-border) !important;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
 }
 
-.skills-card h3 {
-    color: var(--primary-green) !important;
-}
-
-.skills-card p,
-.skills-card li {
-    color: var(--text-color) !important;
+.skills-card h3,
+.skill-card h3 {
+    color: var(--primary-green);
 }
 
 .skill-tag {
-    background-color: var(--primary-green) !important;
-    color: var(--dark-bg) !important;
+    background-color: var(--primary-green);
+    color: var(--dark-bg);
 }
 
-/* Ajustes para elementos do menu */
+/* Menu */
 .navbar {
     background-color: var(--menu-bg);
 }
@@ -74,7 +72,6 @@ h1, h2, h3, p {
     color: var(--menu-text);
 }
 
-/* Manter cores consistentes nos botões */
 .theme-toggle,
 .language-toggle {
     background: var(--menu-bg);
@@ -86,7 +83,7 @@ h1, h2, h3, p {
     color: var(--menu-text);
 }
 
-/* Garantir que os textos usem a cor correta */
-h1, h2, h3, p, span {
-    color: var(--text-color) !important;
-} 
+/* Divider */
+.content-divider {
+    background-color: var(--primary-green);
+}

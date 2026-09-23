@@ -1,4 +1,4 @@
-/* Estilos base do menu */
+/* Navbar */
 .navbar {
     padding: 0.5rem 2rem;
     position: fixed;
@@ -31,79 +31,12 @@
     color: var(--primary-green);
 }
 
-/* Menu Hamburguer */
+/* Hamburger */
 .menu-toggle {
     display: none;
 }
 
-/* Media Query para Mobile */
-@media (max-width: 768px) {
-    /* Menu em tela cheia */
-    .navbar ul {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: var(--background);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s ease;
-        z-index: 1000;
-        padding: 2rem 1rem;
-        gap: 0.5rem;
-    }
-
-    /* Mostra o menu quando ativo */
-    .navbar ul.active {
-        display: flex;
-    }
-
-    .navbar ul li {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar ul li a {
-        display: block;
-        font-size: 1.2rem;
-        padding: 0.5rem;
-    }
-
-    /* Botão study corner com margem inferior */
-    .navbar ul li:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Botão de fechar no canto superior direito */
-    .close-menu {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        color: var(--text-color);
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    /* Removendo o overlay já que o menu é em tela cheia */
-    .blur-overlay {
-        display: none;
-    }
-
-    /* Mantém o botão de menu sempre visível */
-    .menu-toggle {
-        display: block;
-        z-index: 1001;
-    }
-}
-
-/* Botões de alternância */
+/* Toggle buttons */
 .toggle-buttons {
     position: fixed;
     left: 1rem;
@@ -151,19 +84,62 @@
     font-weight: 600;
 }
 
-.language-toggle:hover .lang-icon {
-    color: var(--primary-green);
+/* Mobile menu */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--background);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 2rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul li a {
+        display: block;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+
+    .close-menu {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .blur-overlay {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
 }
 
-/* Tema claro */
-[data-theme="light"] {
-    --background-color: #ffffff;
-    --text-color: #26252a;
-    --primary-green: #54dd64;
-    --gray-light: #4a4a4a;
-}
-
-/* Esconder elementos do Google Translate */
+/* Hide Google Translate elements */
 .goog-te-banner-frame,
 .goog-te-gadget-icon,
 .goog-te-menu-value span,
@@ -174,14 +150,6 @@
 .goog-te-gadget-simple {
     background-color: transparent !important;
     border: none !important;
-}
-
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
-    display: none;
 }
 
 body {

@@ -4,6 +4,8 @@ const translations = {
         'study-corner-title': 'Canto de Estudos',
         'study-corner-subtitle': 'Recursos e guias para aprender programação',
         'study-corner-description': 'Eu criei este canto para que eu e você possamos estudar juntos!',
+        'documentation': 'Documentação',
+        'documentation-desc': 'Documentações oficiais e guias de referência.',
         'construction-message': '🚧 Esta página está em construção! Em breve, trarei conteúdos incríveis sobre programação, tutoriais detalhados e recursos úteis para ajudar em sua jornada de aprendizado. Fique ligado! 😊',
 
         // Seção de Conteúdo de Aprendizado
@@ -49,6 +51,8 @@ const translations = {
         'study-corner-title': 'Study Corner',
         'study-corner-subtitle': 'Resources and guides to learn programming',
         'study-corner-description': 'I created this corner so we can study together!',
+        'documentation': 'Documentation',
+        'documentation-desc': 'Official documentation and reference guides.',
         'construction-message': '🚧 This page is under construction! Soon, I will bring amazing programming content, detailed tutorials, and useful resources to help you on your learning journey. Stay tuned! 😊',
 
         // Learning Content Section
